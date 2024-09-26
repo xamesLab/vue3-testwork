@@ -45,7 +45,11 @@ watch(name, (value) => {
         @change="change"
     />
     <p>{{ store.name }}</p>
-    <p v-if="store.selected.length">{{ store.selected }}</p>
+    <div v-if="store.selected.length">
+      <ul>
+        <li v-for="(item, index) in store.selected" :key="index">{{ item }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -58,7 +62,7 @@ watch(name, (value) => {
     margin-bottom: 20px;
   }
 
-  .app > p:last-child {
+  .app > div {
     margin-top: 10px;
   }
 </style>
